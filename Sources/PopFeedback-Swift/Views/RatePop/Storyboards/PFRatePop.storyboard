@@ -34,6 +34,9 @@
                                         <state key="normal" title="Button">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="submitTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="bqg-Zp-PTl"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How do you like the app ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZP-PC-dfU">
                                         <rect key="frame" x="45" y="22" width="260" height="19.666666666666671"/>
@@ -52,6 +55,9 @@
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" backgroundImage="star" catalog="system"/>
+                                                <connections>
+                                                    <action selector="rate1Tapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="iTW-Q1-mdR"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="247" verticalHuggingPriority="247" horizontalCompressionResistancePriority="747" verticalCompressionResistancePriority="747" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ht7-TZ-34S">
                                                 <rect key="frame" x="48" y="-0.33333333333333215" width="40" height="39.666666666666657"/>
@@ -61,6 +67,9 @@
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" backgroundImage="star" catalog="system"/>
+                                                <connections>
+                                                    <action selector="rate2Tapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="AAA-7X-uqw"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="247" verticalHuggingPriority="247" horizontalCompressionResistancePriority="747" verticalCompressionResistancePriority="747" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57F-B4-F7e">
                                                 <rect key="frame" x="96" y="-0.33333333333333215" width="40" height="39.666666666666657"/>
@@ -70,6 +79,9 @@
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" backgroundImage="star" catalog="system"/>
+                                                <connections>
+                                                    <action selector="rate3Tapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="M0g-Qi-76l"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="247" verticalHuggingPriority="247" horizontalCompressionResistancePriority="747" verticalCompressionResistancePriority="747" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYA-08-hrI">
                                                 <rect key="frame" x="144" y="-0.33333333333333215" width="40" height="39.666666666666657"/>
@@ -79,6 +91,9 @@
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" backgroundImage="star" catalog="system"/>
+                                                <connections>
+                                                    <action selector="rate4Tapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="5wN-WM-FuY"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="247" verticalHuggingPriority="247" horizontalCompressionResistancePriority="747" verticalCompressionResistancePriority="747" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jfd-qJ-4YR">
                                                 <rect key="frame" x="192" y="-0.33333333333333215" width="40" height="39.666666666666657"/>
@@ -88,6 +103,9 @@
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" backgroundImage="star" catalog="system"/>
+                                                <connections>
+                                                    <action selector="rate5Tapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Laz-Om-OCU"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -144,6 +162,19 @@
                             <constraint firstItem="i2C-iw-u9l" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="tmi-Ay-VnP"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="IRc-3p-aJQ" id="Tjt-1d-E5Q"/>
+                        <outlet property="feedbackTextField" destination="8fp-ON-N9l" id="nar-Ar-MRo"/>
+                        <outlet property="feedbackView" destination="iou-xd-8MO" id="rpi-cz-a60"/>
+                        <outlet property="modelBackgroundView" destination="i2C-iw-u9l" id="Qbg-jG-doq"/>
+                        <outlet property="rate1Button" destination="SgT-dH-fVA" id="xcf-Ym-Oh1"/>
+                        <outlet property="rate2Button" destination="ht7-TZ-34S" id="bJb-TN-R3h"/>
+                        <outlet property="rate3Button" destination="57F-B4-F7e" id="pM0-Jj-s46"/>
+                        <outlet property="rate4Button" destination="aYA-08-hrI" id="qdb-iA-JD2"/>
+                        <outlet property="rate5Button" destination="Jfd-qJ-4YR" id="mvI-9V-IeE"/>
+                        <outlet property="submitButton" destination="qDb-Lo-xVa" id="PXb-RB-zIg"/>
+                        <outlet property="titleLabel" destination="MZP-PC-dfU" id="9ha-aJ-TWJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
