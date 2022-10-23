@@ -18,12 +18,12 @@ struct PFAttachmentAddViewModel: ItemViewModel {
         guard let cell = cell as? PFAttachmentAddCollectionViewCell else {
             return
         }
-        cell.backgroundView.backgroundColor = PopFeedback.shared.visualOptions.feedbackPopVisualOption.attachmentAddButtonBackgroundColor
+        cell.bView.backgroundColor = PopFeedback.shared.visualOptions.feedbackPopVisualOption.attachmentAddButtonBackgroundColor
         cell.plusHorizontalView.backgroundColor = PopFeedback.shared.visualOptions.feedbackPopVisualOption.attachmentAddButtonPlusColor
         cell.plusVerticalView.backgroundColor = PopFeedback.shared.visualOptions.feedbackPopVisualOption.attachmentAddButtonPlusColor
-        cell.backgroundView.layer.cornerRadius = 18.0
-        cell.backgroundView.layer.borderWidth = 1.0
-        cell.backgroundView.layer.borderColor = PopFeedback.shared.visualOptions.feedbackPopVisualOption.attachmentAddButtonStrokeColor.cgColor
+        cell.bView.layer.cornerRadius = 18.0
+        cell.bView.layer.borderWidth = 1.0
+        cell.bView.layer.borderColor = PopFeedback.shared.visualOptions.feedbackPopVisualOption.attachmentAddButtonStrokeColor.cgColor
         cell.clipsToBounds = true
     }
 }

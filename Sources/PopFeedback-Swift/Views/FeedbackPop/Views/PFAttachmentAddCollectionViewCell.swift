@@ -9,7 +9,7 @@ import UIKit
 
 class PFAttachmentAddCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var bView: UIView!
     @IBOutlet weak var plusHorizontalView: UIView!
     @IBOutlet weak var plusVerticalView: UIView!
     

@@ -21,7 +21,7 @@ class PFScreenshotPopViewController: UIViewController {
     var screenshotImage = UIImage()
     
     static func instantiate(screenshotImage : UIImage) -> PFScreenshotPopViewController {
-        let screenshotVc = UIStoryboard(name: "PFScreenshotPop", bundle: nil).instantiateViewController(withIdentifier: "PFScreenshotPop") as! PFScreenshotPopViewController
+        let screenshotVc = UIStoryboard(name: "PFScreenshotPop", bundle: Bundle.module).instantiateViewController(withIdentifier: "PFScreenshotPop") as! PFScreenshotPopViewController
         screenshotVc.screenshotImage = screenshotImage
         return screenshotVc
     }
@@ -44,21 +44,24 @@ extension PFScreenshotPopViewController {
         self.backgroundView.backgroundColor = PopFeedback.shared.visualOptions.screenshotPopVisualOption.popupBackgroundColor
         
         self.bugReportButton.backgroundColor = PopFeedback.shared.visualOptions.screenshotPopVisualOption.bugReportButtonBackgroundColor
-        self.bugReportButton.setBackgroundImage(PopFeedback.shared.visualOptions.screenshotPopVisualOption.bugReportButtonImage, for: .normal)
+        self.bugReportButton.setImage(PopFeedback.shared.visualOptions.screenshotPopVisualOption.bugReportButtonImage, for: .normal)
+        self.bugReportButton.tintColor = PopFeedback.shared.visualOptions.screenshotPopVisualOption.bugReportButtonImageTintColor
         self.bugReportButton.layer.cornerRadius = 28.0
         self.bugReportButton.clipsToBounds = true
         self.bugReportLabel.text = PopFeedback.shared.visualOptions.screenshotPopVisualOption.bugReportButtonText
         self.bugReportLabel.textColor = PopFeedback.shared.visualOptions.screenshotPopVisualOption.bugReportButtonTextColor
         
         self.feedbackButton.backgroundColor = PopFeedback.shared.visualOptions.screenshotPopVisualOption.feedbackButtonBackgroundColor
-        self.feedbackButton.setBackgroundImage(PopFeedback.shared.visualOptions.screenshotPopVisualOption.feedbackButtonImage, for: .normal)
+        self.feedbackButton.setImage(PopFeedback.shared.visualOptions.screenshotPopVisualOption.feedbackButtonImage, for: .normal)
+        self.feedbackButton.tintColor = PopFeedback.shared.visualOptions.screenshotPopVisualOption.feedbackButtonImageTintColor
         self.feedbackButton.layer.cornerRadius = 28.0
         self.feedbackButton.clipsToBounds = true
         self.feedbackLabel.text = PopFeedback.shared.visualOptions.screenshotPopVisualOption.feedbackButtonText
         self.feedbackLabel.textColor = PopFeedback.shared.visualOptions.screenshotPopVisualOption.feedbackButtonTextColor
         
         self.shareButton.backgroundColor = PopFeedback.shared.visualOptions.screenshotPopVisualOption.shareButtonBackgroundColor
-        self.shareButton.setBackgroundImage(PopFeedback.shared.visualOptions.screenshotPopVisualOption.shareButtonImage, for: .normal)
+        self.shareButton.setImage(PopFeedback.shared.visualOptions.screenshotPopVisualOption.shareButtonImage, for: .normal)
+        self.shareButton.tintColor = PopFeedback.shared.visualOptions.screenshotPopVisualOption.shareButtonImageTintColor
         self.shareButton.layer.cornerRadius = 28.0
         self.shareButton.clipsToBounds = true
         self.shareLabel.text = PopFeedback.shared.visualOptions.screenshotPopVisualOption.shareButtonText

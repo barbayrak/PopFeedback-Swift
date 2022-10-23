@@ -156,6 +156,7 @@
                                                     </constraints>
                                                 </collectionViewCellContentView>
                                                 <connections>
+                                                    <outlet property="bView" destination="tKm-rS-6Vm" id="Tes-T2-FbF"/>
                                                     <outlet property="backgroundView" destination="tKm-rS-6Vm" id="sI9-Ye-7wj"/>
                                                     <outlet property="plusHorizontalView" destination="NMd-5C-PO6" id="aDo-DR-SUa"/>
                                                     <outlet property="plusVerticalView" destination="PmT-QL-92D" id="beT-VO-Ui6"/>

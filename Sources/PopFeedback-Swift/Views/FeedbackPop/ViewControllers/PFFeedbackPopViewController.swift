@@ -24,7 +24,7 @@ class PFFeedbackPopViewController: UIViewController {
     var reportType : PFReportType = .feedback
     
     static func instantiate(reportType : PFReportType?, attachments : [String]?) -> PFFeedbackPopViewController {
-        let storybardVc = UIStoryboard(name: "PFFeedback", bundle: nil).instantiateViewController(withIdentifier: "PFFeedback") as! PFFeedbackPopViewController
+        let storybardVc = UIStoryboard(name: "PFFeedback", bundle: Bundle.module).instantiateViewController(withIdentifier: "PFFeedback") as! PFFeedbackPopViewController
         storybardVc.attachments = attachments ?? [String]()
         storybardVc.reportType = reportType ?? .feedback
         return storybardVc

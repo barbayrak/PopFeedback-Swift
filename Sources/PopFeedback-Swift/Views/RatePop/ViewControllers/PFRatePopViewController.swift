@@ -22,7 +22,7 @@ class PFRatePopViewController: UIViewController {
     @IBOutlet weak var feedbackTextField: UITextField!
     
     static func instantiate() -> PFRatePopViewController {
-        return UIStoryboard(name: "PFRatePop", bundle: nil).instantiateViewController(withIdentifier: "PFRatePop") as! PFRatePopViewController
+        return UIStoryboard(name: "PFRatePop", bundle: Bundle.module).instantiateViewController(withIdentifier: "PFRatePop") as! PFRatePopViewController
     }
     
     override func viewDidLoad() {

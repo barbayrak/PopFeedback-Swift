@@ -50,16 +50,20 @@ public class PopFeedback {
     }
     
     public func showFeedbackPopup(){
-        let topView = UIApplication.shared.windows.first(where: { $0.isKeyWindow })
+        let rootVc = UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.rootViewController
         let vc = PFMiniPopViewController.instantiate()
-        topView?.addSubview(vc.view)
+        vc.modalPresentationStyle = .overCurrentContext
+        rootVc?.top?.present(vc, animated: false)
     }
     
     public func showRatePopup(){
-        let topView = UIApplication.shared.windows.first(where: { $0.isKeyWindow })
+        let rootVc = UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.rootViewController
         let vc = PFRatePopViewController.instantiate()
-        topView?.addSubview(vc.view)
+        vc.modalPresentationStyle = .overCurrentContext
+        rootVc?.top?.present(vc, animated: false)
     }
+    
+    
     
 }
 
@@ -71,36 +75,40 @@ extension PopFeedback {
         self.resetObservers()
         
         if(self.fireEvents.contains(PFFireEvent.afterScreenshot)){
-            NotificationCenter.default.addObserver(self, selector: #selector(self.showScreenshotPopup), name: UIApplication.userDidTakeScreenshotNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(self.showAfterScreenshot), name: UIApplication.userDidTakeScreenshotNotification, object: nil)
         }
         
         if(self.fireEvents.contains(PFFireEvent.afterShake)){
-            
+            NotificationCenter.default.addObserver(self, selector: #selector(self.showAfterShake), name: Notification.Name("PFDeviceShakeDetected"), object: nil)
         }
         
     }
     
     private func resetObservers(){
         NotificationCenter.default.removeObserver(self, name: UIApplication.userDidTakeScreenshotNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: Notification.Name("PFDeviceShakeDetected"), object: nil)
     }
     
-    @objc private func showScreenshotPopup(){
-        let topView = UIApplication.shared.windows.first(where: { $0.isKeyWindow })
-        let ss = topView?.snapshot() ?? UIImage()
+    @objc private func showAfterScreenshot(){
+        let rootVc = UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.rootViewController
+        let ss = rootVc?.top?.view.snapshot() ?? UIImage()
         let vc = PFScreenshotPopViewController.instantiate(screenshotImage: ss)
-        topView?.addSubview(vc.view)
+        vc.modalPresentationStyle = .overCurrentContext
+        rootVc?.top?.present(vc, animated: false)
     }
     
-    private func showShakePopup(){
-        let topView = UIApplication.shared.windows.first(where: { $0.isKeyWindow })
+    @objc private func showAfterShake(){
+        let rootVc = UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.rootViewController
         let vc = PFMiniPopViewController.instantiate()
-        topView?.addSubview(vc.view)
+        vc.modalPresentationStyle = .overCurrentContext
+        rootVc?.top?.present(vc, animated: false)
     }
     
     private func showFeedbackPopupWithParameters(reportType : PFReportType,attachments : [String]){
-        let topView = UIApplication.shared.windows.first(where: { $0.isKeyWindow })
+        let rootVc = UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.rootViewController
         let vc = PFFeedbackPopViewController.instantiate(reportType: reportType, attachments: attachments)
-        topView?.addSubview(vc.view)
+        vc.modalPresentationStyle = .overCurrentContext
+        rootVc?.top?.present(vc, animated: false)
     }
     
 }

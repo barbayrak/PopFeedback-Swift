@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,7 +19,8 @@
                         <subviews>
                             <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXm-1Q-yVl">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <gestureRecognizers/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ofP-VR-FdQ">
                                 <rect key="frame" x="20" y="330" width="350" height="197.33333333333337"/>
@@ -30,26 +32,26 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="LGX-kV-TpR">
-                                        <rect key="frame" x="10" y="89.333333333333314" width="330" height="80"/>
+                                        <rect key="frame" x="30" y="89.333333333333314" width="290" height="80"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LgX-oG-fEI">
-                                                <rect key="frame" x="0.0" y="0.0" width="165" height="80"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="145" height="80"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLP-bS-YfQ">
-                                                        <rect key="frame" x="54.666666666666671" y="0.0" width="56" height="56"/>
+                                                        <rect key="frame" x="44.666666666666671" y="0.0" width="56" height="56"/>
                                                         <color key="backgroundColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="56" id="ib5-nE-PW0"/>
                                                             <constraint firstAttribute="height" constant="56" id="pVv-UY-cv0"/>
                                                         </constraints>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="pencil.slash" catalog="system"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="pencil.slash" catalog="system"/>
                                                         <connections>
                                                             <action selector="bugReportTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="X3e-6t-su5"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bug Report" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JRE-dc-SgS">
-                                                        <rect key="frame" x="52" y="64" width="61" height="14"/>
+                                                        <rect key="frame" x="42" y="64" width="61" height="14"/>
                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -64,23 +66,23 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YGL-06-0B8">
-                                                <rect key="frame" x="165" y="0.0" width="165" height="80"/>
+                                                <rect key="frame" x="145" y="0.0" width="145" height="80"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDt-Ye-d2D">
-                                                        <rect key="frame" x="54.666666666666657" y="0.0" width="56" height="56"/>
+                                                        <rect key="frame" x="44.666666666666657" y="0.0" width="56" height="56"/>
                                                         <color key="backgroundColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="Hys-xS-ql4"/>
                                                             <constraint firstAttribute="width" constant="56" id="mqU-Pu-SHu"/>
                                                         </constraints>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="pencil.slash" catalog="system"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="pencil.slash" catalog="system"/>
                                                         <connections>
                                                             <action selector="feedbackTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="x3j-Zb-0M9"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NoZ-Vo-fvW">
-                                                        <rect key="frame" x="56" y="64" width="53" height="14"/>
+                                                        <rect key="frame" x="46" y="64" width="53" height="14"/>
                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -102,12 +104,12 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.69411764710000001" green="0.69411764710000001" blue="0.77647058820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="LGX-kV-TpR" secondAttribute="trailing" constant="10" id="4Gq-hL-0y4"/>
+                                    <constraint firstAttribute="trailing" secondItem="LGX-kV-TpR" secondAttribute="trailing" constant="30" id="4Gq-hL-0y4"/>
                                     <constraint firstItem="bf5-Ao-R3s" firstAttribute="centerX" secondItem="ofP-VR-FdQ" secondAttribute="centerX" id="4dY-21-IgY"/>
                                     <constraint firstItem="bf5-Ao-R3s" firstAttribute="leading" secondItem="ofP-VR-FdQ" secondAttribute="leading" constant="45" id="87t-u7-wqT"/>
                                     <constraint firstAttribute="trailing" secondItem="bf5-Ao-R3s" secondAttribute="trailing" constant="45" id="8HF-L6-Vv3"/>
                                     <constraint firstItem="LGX-kV-TpR" firstAttribute="top" secondItem="bf5-Ao-R3s" secondAttribute="bottom" constant="28" id="GEl-e3-eeb"/>
-                                    <constraint firstItem="LGX-kV-TpR" firstAttribute="leading" secondItem="ofP-VR-FdQ" secondAttribute="leading" constant="10" id="ZaL-s1-rc9"/>
+                                    <constraint firstItem="LGX-kV-TpR" firstAttribute="leading" secondItem="ofP-VR-FdQ" secondAttribute="leading" constant="30" id="ZaL-s1-rc9"/>
                                     <constraint firstItem="bf5-Ao-R3s" firstAttribute="top" secondItem="ofP-VR-FdQ" secondAttribute="top" constant="22" id="ckO-3q-zYg"/>
                                     <constraint firstAttribute="bottom" secondItem="LGX-kV-TpR" secondAttribute="bottom" constant="28" id="hgn-af-Af3"/>
                                 </constraints>
@@ -143,5 +145,8 @@
     </scenes>
     <resources>
         <image name="pencil.slash" catalog="system" width="128" height="113"/>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
