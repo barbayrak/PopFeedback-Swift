@@ -24,7 +24,7 @@ struct PFAttachmentViewModel: ItemViewModel {
         cell.imageView.image = self.image
         cell.layer.cornerRadius = 18.0
         cell.layer.borderWidth = 1.0
-        cell.layer.borderColor = UIColor(red: 137.0/255.0, green: 137.0/255.0, blue: 232.0/255.0, alpha: 1.0).cgColor
+        cell.layer.borderColor = PopFeedback.shared.visualOptions.feedbackPopVisualOption.attachmentStrokeColor.cgColor
         cell.clipsToBounds = true
     }
 }

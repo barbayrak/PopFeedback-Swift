@@ -21,12 +21,17 @@ class PFRatePopViewController: UIViewController {
     @IBOutlet weak var feedbackView: UIView!
     @IBOutlet weak var feedbackTextField: UITextField!
     
+    static func instantiate() -> PFRatePopViewController {
+        return UIStoryboard(name: "PFRatePop", bundle: nil).instantiateViewController(withIdentifier: "PFRatePop") as! PFRatePopViewController
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
     @IBAction func submitTapped(_ sender: Any) {
+        
     }
     
     @IBAction func rate1Tapped(_ sender: Any) {
@@ -50,7 +55,32 @@ class PFRatePopViewController: UIViewController {
     }
     
     func changeRate(rate : Int){
+        self.resetRateViews()
         
+        switch(rate){
+        case 1:
+            rate1Button.setBackgroundImage(PopFeedback.shared.visualOptions.ratePopVisualOption.rateActiveImage, for: .normal)
+        case 2:
+            rate1Button.setBackgroundImage(PopFeedback.shared.visualOptions.ratePopVisualOption.rateActiveImage, for: .normal)
+            rate2Button.setBackgroundImage(PopFeedback.shared.visualOptions.ratePopVisualOption.rateActiveImage, for: .normal)
+        case 3:
+            rate1Button.setBackgroundImage(PopFeedback.shared.visualOptions.ratePopVisualOption.rateActiveImage, for: .normal)
+            rate2Button.setBackgroundImage(PopFeedback.shared.visualOptions.ratePopVisualOption.rateActiveImage, for: .normal)
+            rate3Button.setBackgroundImage(PopFeedback.shared.visualOptions.ratePopVisualOption.rateActiveImage, for: .normal)
+        case 4:
+            rate1Button.setBackgroundImage(PopFeedback.shared.visualOptions.ratePopVisualOption.rateActiveImage, for: .normal)
+            rate2Button.setBackgroundImage(PopFeedback.shared.visualOptions.ratePopVisualOption.rateActiveImage, for: .normal)
+            rate3Button.setBackgroundImage(PopFeedback.shared.visualOptions.ratePopVisualOption.rateActiveImage, for: .normal)
+            rate4Button.setBackgroundImage(PopFeedback.shared.visualOptions.ratePopVisualOption.rateActiveImage, for: .normal)
+        case 5:
+            rate1Button.setBackgroundImage(PopFeedback.shared.visualOptions.ratePopVisualOption.rateActiveImage, for: .normal)
+            rate2Button.setBackgroundImage(PopFeedback.shared.visualOptions.ratePopVisualOption.rateActiveImage, for: .normal)
+            rate3Button.setBackgroundImage(PopFeedback.shared.visualOptions.ratePopVisualOption.rateActiveImage, for: .normal)
+            rate4Button.setBackgroundImage(PopFeedback.shared.visualOptions.ratePopVisualOption.rateActiveImage, for: .normal)
+            rate5Button.setBackgroundImage(PopFeedback.shared.visualOptions.ratePopVisualOption.rateActiveImage, for: .normal)
+        default:
+            break
+        }
     }
     
 }
@@ -58,20 +88,33 @@ class PFRatePopViewController: UIViewController {
 extension PFRatePopViewController {
     
     func setupUI(){
-        self.titleLabel.text = "How do you like the app ?"
-        self.titleLabel.textColor = UIColor.black
-        self.submitButton.layer.cornerRadius = 8.0
-        self.submitButton.setTitle("Submit", for: .normal)
-        self.submitButton.backgroundColor = UIColor(red: 137.0/255.0, green: 137.0/255.0, blue: 232.0/255.0, alpha: 1.0)
+        self.backgroundView.backgroundColor = PopFeedback.shared.visualOptions.ratePopVisualOption.backgroundColor
+        self.backgroundView.alpha = PopFeedback.shared.visualOptions.ratePopVisualOption.backgroundAlpha
+        
         self.modelBackgroundView.layer.cornerRadius = 12.0
-        self.modelBackgroundView.backgroundColor = UIColor(red: 177.0/255.0, green: 177.0/255.0, blue: 198.0/255.0, alpha: 1.0)
-        self.backgroundView.backgroundColor = UIColor.black
-        self.backgroundView.alpha = 0.5
+        self.modelBackgroundView.backgroundColor = PopFeedback.shared.visualOptions.ratePopVisualOption.popupBackgroundColor
+        
+        self.titleLabel.text = PopFeedback.shared.visualOptions.ratePopVisualOption.titleText
+        self.titleLabel.textColor = PopFeedback.shared.visualOptions.ratePopVisualOption.titleTextColor
+        
+        self.submitButton.layer.cornerRadius = 8.0
+        self.submitButton.setTitle(PopFeedback.shared.visualOptions.ratePopVisualOption.submitButtonText, for: .normal)
+        self.submitButton.setTitleColor(PopFeedback.shared.visualOptions.ratePopVisualOption.submitButtonTextColor, for: .normal)
+        self.submitButton.backgroundColor = PopFeedback.shared.visualOptions.ratePopVisualOption.submitButtonBackgroundColor
+        
         self.setupRateViews()
     }
     
     func setupRateViews(){
-        
+        self.changeRate(rate: 3)
+    }
+    
+    func resetRateViews(){
+        rate1Button.setBackgroundImage(PopFeedback.shared.visualOptions.ratePopVisualOption.ratePassiveImage, for: .normal)
+        rate2Button.setBackgroundImage(PopFeedback.shared.visualOptions.ratePopVisualOption.ratePassiveImage, for: .normal)
+        rate3Button.setBackgroundImage(PopFeedback.shared.visualOptions.ratePopVisualOption.ratePassiveImage, for: .normal)
+        rate4Button.setBackgroundImage(PopFeedback.shared.visualOptions.ratePopVisualOption.ratePassiveImage, for: .normal)
+        rate5Button.setBackgroundImage(PopFeedback.shared.visualOptions.ratePopVisualOption.ratePassiveImage, for: .normal)
     }
     
 }

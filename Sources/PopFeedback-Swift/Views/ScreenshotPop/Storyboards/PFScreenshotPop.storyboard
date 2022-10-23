@@ -11,7 +11,7 @@
         <!--Screenshot Pop View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="PFScreenshotPopViewController" customModule="PopFeedback_Swift" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PFScreenshotPop" id="Y6W-OH-hqX" customClass="PFScreenshotPopViewController" customModule="PopFeedback_Swift" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -142,6 +142,7 @@
                         <outlet property="bugReportLabel" destination="Ef6-jX-Mf4" id="1sA-F6-pUb"/>
                         <outlet property="feedbackButton" destination="I2k-XJ-dxS" id="I0g-q5-QhB"/>
                         <outlet property="feedbackLabel" destination="WHC-Nv-5Bx" id="idv-jl-hxo"/>
+                        <outlet property="screenshotImageView" destination="R07-k6-C6J" id="YSw-qv-dAA"/>
                         <outlet property="shareButton" destination="CcD-9c-ZQS" id="1rM-cd-WC8"/>
                         <outlet property="shareLabel" destination="RhB-dX-LXy" id="xk2-rh-8Ii"/>
                     </connections>

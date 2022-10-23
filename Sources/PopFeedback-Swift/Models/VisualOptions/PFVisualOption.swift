@@ -9,9 +9,9 @@ import Foundation
 
 public struct PFVisualOption {
     
-    var screenshotPopVisualOption : PFScreenshotPopVisualOption = PFScreenshotPopVisualOption()
-    var miniPopVisualOption : PFMiniPopVisualOption = PFMiniPopVisualOption()
-    var feedbackPopVisualOption : PFFeedbackPopVisualOption = PFFeedbackPopVisualOption()
-    var ratePopVisualOption : PFRatePopVisualOption = PFRatePopVisualOption()
+    public var screenshotPopVisualOption : PFScreenshotPopVisualOption = PFScreenshotPopVisualOption()
+    public var miniPopVisualOption : PFMiniPopVisualOption = PFMiniPopVisualOption()
+    public var feedbackPopVisualOption : PFFeedbackPopVisualOption = PFFeedbackPopVisualOption()
+    public var ratePopVisualOption : PFRatePopVisualOption = PFRatePopVisualOption()
     
 }

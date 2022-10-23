@@ -8,10 +8,10 @@
 import Foundation
 import UIKit
 
-extension UIImage {
+extension String {
     
-    func convertBase64StringToImage (imageBase64String:String) -> UIImage {
-        let imageData = Data(base64Encoded: imageBase64String)
+    func convertBase64StringToImage () -> UIImage {
+        let imageData = Data(base64Encoded: self)
         let image = UIImage(data: imageData!)
         return image!
     }

@@ -15,15 +15,13 @@ public class PopFeedback {
     var environment : PFEnvironment = .sandbox
     var fireEvents : [PFFireEvent] = []
     var integrations : [PFIntegration] = []
-    var visualOptions : PFFeedbackPopVisualOption = PFFeedbackPopVisualOption()
+    var visualOptions : PFVisualOption = PFVisualOption()
     var customAttributes : [String:String] = [:]
     
-    //public func configure(environment: PFEnvironment = .sandbox,fireEvents : [PFFireEvent] = [],integrations : [PFIntegration], visualOptions: PFFeedbackPopVisualOption = PFFeedbackPopVisualOption(), customAttributes: [String : String] = [:]) {
-    public func configure(environment: PFEnvironment,fireEvents : [PFFireEvent],integrations : [PFIntegration], customAttributes: [String : String]?) {
+    public func configure(environment: PFEnvironment,fireEvents : [PFFireEvent],integrations : [PFIntegration],customAttributes: [String : String]?) {
         self.environment = environment
         self.fireEvents = fireEvents
         self.integrations = integrations
-        //self.visualOptions = visualOptions
         self.customAttributes = customAttributes ?? [:]
         self.configureFireEvents()
     }
@@ -37,6 +35,10 @@ public class PopFeedback {
         self.integrations = integrations
     }
     
+    public func setVisualOptions(visualOptions : PFVisualOption){
+        self.visualOptions = visualOptions
+    }
+    
     public func setCustomAttributes(attributes : [String:String]){
         self.customAttributes = attributes
     }
@@ -47,15 +49,20 @@ public class PopFeedback {
         }
     }
     
-    public func showRatePopup(){
-        
+    public func showFeedbackPopup(){
+        let topView = UIApplication.shared.windows.first(where: { $0.isKeyWindow })
+        let vc = PFMiniPopViewController.instantiate()
+        topView?.addSubview(vc.view)
     }
     
-    public func showFeedbackMiniPopup(){
-        
+    public func showRatePopup(){
+        let topView = UIApplication.shared.windows.first(where: { $0.isKeyWindow })
+        let vc = PFRatePopViewController.instantiate()
+        topView?.addSubview(vc.view)
     }
     
 }
+
 
 // Private functions
 extension PopFeedback {
@@ -78,11 +85,23 @@ extension PopFeedback {
     }
     
     @objc private func showScreenshotPopup(){
-        
+        let topView = UIApplication.shared.windows.first(where: { $0.isKeyWindow })
+        let ss = topView?.snapshot() ?? UIImage()
+        let vc = PFScreenshotPopViewController.instantiate(screenshotImage: ss)
+        topView?.addSubview(vc.view)
     }
     
     private func showShakePopup(){
-        
+        let topView = UIApplication.shared.windows.first(where: { $0.isKeyWindow })
+        let vc = PFMiniPopViewController.instantiate()
+        topView?.addSubview(vc.view)
+    }
+    
+    private func showFeedbackPopupWithParameters(reportType : PFReportType,attachments : [String]){
+        let topView = UIApplication.shared.windows.first(where: { $0.isKeyWindow })
+        let vc = PFFeedbackPopViewController.instantiate(reportType: reportType, attachments: attachments)
+        topView?.addSubview(vc.view)
     }
     
 }
+

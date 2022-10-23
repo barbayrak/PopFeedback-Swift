@@ -19,8 +19,16 @@ class PFFeedbackPopViewController: UIViewController {
     @IBOutlet weak var attachmentsCollectionView: UICollectionView!
     @IBOutlet weak var submitButton: UIButton!
     
+    var attachments = [String]()
     var attachmentViewModels : [ItemViewModel] = [  PFAttachmentAddViewModel() ]
     var reportType : PFReportType = .feedback
+    
+    static func instantiate(reportType : PFReportType?, attachments : [String]?) -> PFFeedbackPopViewController {
+        let storybardVc = UIStoryboard(name: "PFFeedback", bundle: nil).instantiateViewController(withIdentifier: "PFFeedback") as! PFFeedbackPopViewController
+        storybardVc.attachments = attachments ?? [String]()
+        storybardVc.reportType = reportType ?? .feedback
+        return storybardVc
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,23 +48,29 @@ class PFFeedbackPopViewController: UIViewController {
 extension PFFeedbackPopViewController {
     
     func setupUI(){
+        self.backgroundView.backgroundColor = PopFeedback.shared.visualOptions.feedbackPopVisualOption.backgroundColor
+        self.backgroundView.alpha = PopFeedback.shared.visualOptions.feedbackPopVisualOption.backgroundAlpha
+        
+        self.modelBackgroundView.layer.cornerRadius = 12.0
+        self.modelBackgroundView.backgroundColor = PopFeedback.shared.visualOptions.feedbackPopVisualOption.popupBackgroundColor
+        
         if(self.reportType == .bug){
             self.titleLabel.text = "Bug Report"
         }else {
             self.titleLabel.text = "Feedback"
         }
         self.titleLabel.textColor = UIColor.black
-        self.feedbackTextField.placeholder = "Please write your detailed message here..."
+        
+        self.feedbackTextField.placeholder = PopFeedback.shared.visualOptions.feedbackPopVisualOption.messagePlaceholderText
         self.feedbackTextField.contentVerticalAlignment = .top
         self.feedbackTextField.contentHorizontalAlignment = .left
         self.feedbackView.layer.cornerRadius = 12.0
+        
         self.submitButton.layer.cornerRadius = 8.0
-        self.submitButton.setTitle("Submit", for: .normal)
-        self.submitButton.backgroundColor = UIColor(red: 137.0/255.0, green: 137.0/255.0, blue: 232.0/255.0, alpha: 1.0)
-        self.backgroundView.backgroundColor = UIColor.black
-        self.backgroundView.alpha = 0.5
-        self.modelBackgroundView.layer.cornerRadius = 12.0
-        self.modelBackgroundView.backgroundColor = UIColor(red: 177.0/255.0, green: 177.0/255.0, blue: 198.0/255.0, alpha: 1.0)
+        self.submitButton.setTitle(PopFeedback.shared.visualOptions.feedbackPopVisualOption.submitButtonText, for: .normal)
+        self.submitButton.backgroundColor = PopFeedback.shared.visualOptions.feedbackPopVisualOption.submitButtonBackgroundColor
+        self.submitButton.setTitleColor(PopFeedback.shared.visualOptions.feedbackPopVisualOption.submitButtonTextColor, for: .normal)
+        
         self.attachmentsCollectionView.reloadData()
     }
     
