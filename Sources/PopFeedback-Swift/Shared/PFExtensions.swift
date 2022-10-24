@@ -8,6 +8,27 @@
 import Foundation
 import UIKit
 
+extension UIWindow {
+    
+    open override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        super.motionEnded(motion, with: event)
+        
+        if motion == .motionShake {
+            print("Device shaken")
+            NotificationCenter.default.post(name: NSNotification.Name("PFDeviceShakeDetected"), object: nil)
+        }
+    }
+    
+}
+
+extension UIImage {
+    
+    func convertImageToBase64String() -> String {
+        return self.jpegData(compressionQuality: 1)?.base64EncodedString() ?? ""
+    }
+    
+}
+
 extension UIViewController {
     
     var top: UIViewController? {
@@ -25,5 +46,27 @@ extension UIViewController {
         }
         return self
     }
+    
+}
+
+extension String {
+    
+    func convertBase64StringToImage () -> UIImage {
+        let imageData = Data(base64Encoded: self)
+        let image = UIImage(data: imageData!)
+        return image!
+    }
+    
+}
+
+extension UIView {
+    
+    func snapshot() -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(bounds.size, false, UIScreen.main.scale)
+        drawHierarchy(in: bounds, afterScreenUpdates: true)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+   }
     
 }

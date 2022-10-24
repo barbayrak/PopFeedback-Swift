@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum PFEnvironment {
-    case production
-    case sandbox
+public enum PFEnvironment : String,Codable {
+    case production = "production"
+    case sandbox = "sandbox"
 }

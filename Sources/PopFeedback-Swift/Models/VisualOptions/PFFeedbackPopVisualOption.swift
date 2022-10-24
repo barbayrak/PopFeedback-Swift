@@ -28,7 +28,7 @@ public struct PFFeedbackPopVisualOption {
     //Attachment view attributes
     let attachmentStrokeColor : UIColor = UIColor(red: 137.0/255.0, green: 137.0/255.0, blue: 232.0/255.0, alpha: 1.0)
     let attachmentAddButtonPlusColor : UIColor = UIColor.white
-    let attachmentAddButtonStrokeColor : UIColor = UIColor(red: 59.0/255.0, green: 59.0/255.0, blue: 99.0/255.0, alpha: 1.0)
-    let attachmentAddButtonBackgroundColor : UIColor = UIColor(red: 137.0/255.0, green: 137.0/255.0, blue: 232.0/255.0, alpha: 1.0)
+    let attachmentAddButtonStrokeColor : UIColor = UIColor(red: 137.0/255.0, green: 137.0/255.0, blue: 232.0/255.0, alpha: 1.0)
+    let attachmentAddButtonBackgroundColor : UIColor = UIColor(red: 59.0/255.0, green: 59.0/255.0, blue: 99.0/255.0, alpha: 1.0)
     
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum PFReportType : String {
+public enum PFReportType : String,Codable {
     case bug = "bug"
     case feedback = "feedback"
     case rate = "rate"

@@ -17,7 +17,6 @@ class PFMiniPopViewController: UIViewController {
     @IBOutlet weak var bugReportLabel: UILabel!
     @IBOutlet weak var feedbackLabel: UILabel!
     @IBOutlet weak var feedbackButton: UIButton!
-    @IBOutlet var backgroundTapGestureRecognizer: UITapGestureRecognizer!
     
     static func instantiate() -> PFMiniPopViewController {
         return UIStoryboard(name: "PFMiniPop", bundle: Bundle.module).instantiateViewController(withIdentifier: "PFMiniPop") as! PFMiniPopViewController
@@ -29,11 +28,15 @@ class PFMiniPopViewController: UIViewController {
     }
     
     @IBAction func bugReportTapped(_ sender: Any) {
-        self.closePopup()
+        self.dismiss(animated: false) {
+            PopFeedback.shared.showFeedbackPopupWithParameters(reportType: .bug, attachments: [])
+        }
     }
     
     @IBAction func feedbackTapped(_ sender: Any) {
-        self.closePopup()
+        self.dismiss(animated: false) {
+            PopFeedback.shared.showFeedbackPopupWithParameters(reportType: .feedback, attachments: [])
+        }
     }
     
 }
@@ -66,6 +69,7 @@ extension PFMiniPopViewController {
         self.feedbackLabel.text = PopFeedback.shared.visualOptions.miniPopVisualOption.feedbackButtonText
         self.feedbackLabel.textColor = PopFeedback.shared.visualOptions.miniPopVisualOption.feedbackButtonTextColor
         
+        self.backgroundView.gestureRecognizers = []
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.closePopup))
         self.backgroundView.addGestureRecognizer(tap)
     }

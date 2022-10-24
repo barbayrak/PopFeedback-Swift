@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct PFReport {
+public struct PFReport : Codable {
     
     var environment : PFEnvironment
     var type : PFReportType

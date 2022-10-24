@@ -21,6 +21,8 @@ class PFRatePopViewController: UIViewController {
     @IBOutlet weak var feedbackView: UIView!
     @IBOutlet weak var feedbackTextField: UITextField!
     
+    var rating = 3.0
+    
     static func instantiate() -> PFRatePopViewController {
         return UIStoryboard(name: "PFRatePop", bundle: Bundle.module).instantiateViewController(withIdentifier: "PFRatePop") as! PFRatePopViewController
     }
@@ -31,26 +33,33 @@ class PFRatePopViewController: UIViewController {
     }
     
     @IBAction func submitTapped(_ sender: Any) {
-        
+        var feedback = PFReport(environment: PopFeedback.shared.environment, type: .rate, message: (feedbackTextField.text ?? ""))
+        feedback.rating = self.rating
+        PFFeedbackService().sendFeedback(feedback: feedback)
     }
     
     @IBAction func rate1Tapped(_ sender: Any) {
+        self.rating = 1.0
         self.changeRate(rate: 1)
     }
     
     @IBAction func rate2Tapped(_ sender: Any) {
+        self.rating = 2.0
         self.changeRate(rate: 2)
     }
     
     @IBAction func rate3Tapped(_ sender: Any) {
+        self.rating = 3.0
         self.changeRate(rate: 3)
     }
     
     @IBAction func rate4Tapped(_ sender: Any) {
+        self.rating = 4.0
         self.changeRate(rate: 4)
     }
     
     @IBAction func rate5Tapped(_ sender: Any) {
+        self.rating = 5.0
         self.changeRate(rate: 5)
     }
     
@@ -102,6 +111,15 @@ extension PFRatePopViewController {
         self.submitButton.setTitleColor(PopFeedback.shared.visualOptions.ratePopVisualOption.submitButtonTextColor, for: .normal)
         self.submitButton.backgroundColor = PopFeedback.shared.visualOptions.ratePopVisualOption.submitButtonBackgroundColor
         
+        self.backgroundView.gestureRecognizers = []
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.closePopup))
+        self.backgroundView.addGestureRecognizer(tap)
+        
+        self.feedbackTextField.placeholder = PopFeedback.shared.visualOptions.ratePopVisualOption.messagePlaceholderText
+        self.feedbackTextField.contentVerticalAlignment = .top
+        self.feedbackTextField.contentHorizontalAlignment = .left
+        self.feedbackView.layer.cornerRadius = 6.0
+        
         self.setupRateViews()
     }
     
@@ -115,6 +133,10 @@ extension PFRatePopViewController {
         rate3Button.setBackgroundImage(PopFeedback.shared.visualOptions.ratePopVisualOption.ratePassiveImage, for: .normal)
         rate4Button.setBackgroundImage(PopFeedback.shared.visualOptions.ratePopVisualOption.ratePassiveImage, for: .normal)
         rate5Button.setBackgroundImage(PopFeedback.shared.visualOptions.ratePopVisualOption.ratePassiveImage, for: .normal)
+    }
+    
+    @objc func closePopup(){
+        self.dismiss(animated: false)
     }
     
 }

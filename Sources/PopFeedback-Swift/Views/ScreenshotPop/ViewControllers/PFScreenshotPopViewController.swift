@@ -31,6 +31,25 @@ class PFScreenshotPopViewController: UIViewController {
         setupUI()
     }
     
+    @IBAction func bugReportTapped(_ sender: Any) {
+        self.dismiss(animated: false) {
+            PopFeedback.shared.showFeedbackPopupWithParameters(reportType: .bug, attachments: [self.screenshotImage.convertImageToBase64String()])
+        }
+    }
+    
+    @IBAction func feedbackTapped(_ sender: Any) {
+        self.dismiss(animated: false) {
+            PopFeedback.shared.showFeedbackPopupWithParameters(reportType: .feedback, attachments: [self.screenshotImage.convertImageToBase64String()])
+        }
+    }
+    
+    @IBAction func shareTapped(_ sender: Any) {
+        let imageShare = [ self.screenshotImage ]
+        let activityViewController = UIActivityViewController(activityItems: imageShare , applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    
 }
 
 extension PFScreenshotPopViewController {

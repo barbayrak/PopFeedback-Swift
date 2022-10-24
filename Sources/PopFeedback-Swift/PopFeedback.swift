@@ -104,7 +104,7 @@ extension PopFeedback {
         rootVc?.top?.present(vc, animated: false)
     }
     
-    private func showFeedbackPopupWithParameters(reportType : PFReportType,attachments : [String]){
+    func showFeedbackPopupWithParameters(reportType : PFReportType,attachments : [String]){
         let rootVc = UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.rootViewController
         let vc = PFFeedbackPopViewController.instantiate(reportType: reportType, attachments: attachments)
         vc.modalPresentationStyle = .overCurrentContext
