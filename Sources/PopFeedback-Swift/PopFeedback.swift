@@ -49,6 +49,10 @@ public class PopFeedback {
         }
     }
     
+    public func sendExampleFeedback(){
+        PFFeedbackService().sendFeedback(feedback: PFReport(environment: .sandbox, type: .feedback, message: "Example feedback message"))
+    }
+    
     public func showFeedbackPopup(){
         let rootVc = UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.rootViewController
         let vc = PFMiniPopViewController.instantiate()

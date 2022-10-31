@@ -44,6 +44,11 @@ class PFFeedbackPopViewController: UIViewController {
         var feedback = PFReport(environment: PopFeedback.shared.environment, type: self.reportType, message: (self.feedbackTextField.text ?? ""))
         feedback.images = self.attachments
         PFFeedbackService().sendFeedback(feedback: feedback)
+        let alert = UIAlertController(title: nil, message: "Feedback sent successfully", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default,handler: { aa in
+            self.dismiss(animated: false)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func newAttachmentAddTapped(){

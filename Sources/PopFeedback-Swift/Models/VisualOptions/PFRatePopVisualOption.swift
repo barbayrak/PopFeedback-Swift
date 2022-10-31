@@ -22,7 +22,7 @@ public struct PFRatePopVisualOption {
     let submitButtonText : String = "Submit"
     
     //Message view attributes
-    let messagePlaceholderText : String = ""
+    let messagePlaceholderText : String = "Place your feedback here ..."
     let messageBackgroundColor : UIColor = UIColor(red: 217.0/255.0, green: 217.0/255.0, blue: 217.0/255.0, alpha: 1.0)
     let messageTextColor : UIColor = UIColor.black
     

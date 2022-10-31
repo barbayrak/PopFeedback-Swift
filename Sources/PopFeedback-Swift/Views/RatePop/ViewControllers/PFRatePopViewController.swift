@@ -36,6 +36,12 @@ class PFRatePopViewController: UIViewController {
         var feedback = PFReport(environment: PopFeedback.shared.environment, type: .rate, message: (feedbackTextField.text ?? ""))
         feedback.rating = self.rating
         PFFeedbackService().sendFeedback(feedback: feedback)
+        
+        let alert = UIAlertController(title: nil, message: "Rating sent successfully", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default,handler: { aa in
+            self.dismiss(animated: false)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func rate1Tapped(_ sender: Any) {

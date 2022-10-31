@@ -24,12 +24,13 @@ struct PFFeedbackService {
     
     func sendPostRequest(url: String, feedback : PFReport, headers :[String:String]){
         var feedbackObject = feedback
+        feedbackObject.images = []
         feedbackObject.deviceInfo = getDeviceInfoDictionary()
         feedbackObject.customAttributes = getCustomAttributes()
         
         var request = URLRequest(url: URL(string: url)!)
         do{
-            let jsonData = try JSONEncoder().encode(feedback)
+            let jsonData = try JSONEncoder().encode(feedbackObject)
             request.httpMethod = "POST"
             request.httpBody = jsonData
             request.allHTTPHeaderFields = headers
